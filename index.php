@@ -21,7 +21,7 @@
 	   $.get('processa_lista.php', function(resultado){
 		$('#tabela').html(resultado);
 	   })
-	   setTimeout('atualiza()', 3000);
+	   setTimeout('atualiza()', 6000);
 	}
    </script>
 </head>
@@ -31,13 +31,50 @@
       $stringCompleta = $ip;
       $stringCompleta = $ip.'ina';
       $stringCompleta = $ip.'ind';
+      $redirecionar_1 = 'index.php';
+
+      if(isset($_POST['comando'])):
+
+							$rele = $_POST['id'];
+              $status = $_POST['status'];
+              
+							if($status <> '0'){
+								echo '<iframe src="http://192.168.10.247/OF'. $rele .'.htm" height="1" width="1"/>';
+                header("Refresh: 1, ".$redirecionar_1);
+							}
+              if($status <> '1'){
+								echo '<iframe src="http://192.168.10.247/ON'. $rele .'.htm" height="1" width="1"/>';
+                header("Refresh: 1, ".$redirecionar_1);
+							}
+						endif;
       #DELETAR
-		if(isset($_GET['NO'])):
+		if(isset($_GET['RE'])):
             $re = (int)$_GET['NO'];
                 echo '    <iframe src="http://192.168.10.247/ON'. $re .'.htm" height="1" width="1"/>';
                 header("Refresh: 1, index.php");
 							
-	    endif;							
+	    endif;
+      if(isset($_GET['RE'])):
+            $re = (int)$_GET['RE'];
+            for ($i = 1; $i <= $re ; $i++) {
+                if ($i > 10) {
+                    break;
+                }
+                echo $i;
+            }
+            endif;
+            $i = 0;
+            switch ($i) {
+                case 0:
+                    echo "i equals 0";
+                    break;
+                case 1:
+                    echo "i equals 1";
+                    break;
+                case 2:
+                    echo "i equals 2";
+                    break;
+            }						
             
 ?>
 
@@ -74,14 +111,7 @@
     <div class="section">
       <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Speeds up development</h5>
 
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-          </div>
-        </div>
 
         <div id ='pagina'>
      ...
@@ -91,24 +121,8 @@
      </div>
  </div>
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
 
-            <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-          </div>
-        </div>
 
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
-
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-          </div>
-        </div>
-      </div>
 
     </div>
     <br><br>
