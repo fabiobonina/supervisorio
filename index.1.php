@@ -18,10 +18,10 @@
 	});
 
 	function atualiza(){
-	   $.get('processa_lista.php', function(resultado){
+	   $.get('processa_lista.1.php', function(resultado){
 		$('#tabela').html(resultado);
 	   })
-	   setTimeout('atualiza()', 3000);
+	   setTimeout('atualiza()', 1000);
 	}
    </script>
 </head>

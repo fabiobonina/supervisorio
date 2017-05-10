@@ -8,14 +8,15 @@ function multiexplode ($delimiters,$string) {
     return  $launch;
 }
 
-$rele = file_get_contents('http://192.168.10.247/out');
-$exploded = multiexplode(array(",","<html><body>","</body></html>","!#!"),$rele);
+//$rele = file_get_contents('http://192.168.10.247/out');
+//$exploded = multiexplode(array(",","<html><body>","</body></html>","!#!"),$rele);
 
-$analogica = file_get_contents('http://192.168.10.247/out');
-//var_dump ($analogica);
-$exploded2 = multiexplode(array(",","<html><body>","</body></html>","!#!"),$analogica);
+$analogica = file_get_contents('http://187.84.226.180:6303');
+var_dump ($analogica);
+echo $analogica;
+//$exploded2 = multiexplode(array(",","<html><body>","</body></html>","!#!"),$analogica);
 //var_dump ($exploded2);
-?>
+/*?>
 
         <div class="col s12 m2">
         <ul class="collection">
@@ -69,6 +70,6 @@ $exploded2 = multiexplode(array(",","<html><body>","</body></html>","!#!"),$anal
 
     <?php
         }
-    }
+    }*/
     ?>
     
